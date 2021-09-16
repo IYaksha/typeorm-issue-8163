@@ -1,0 +1,18 @@
+version: "3"
+services:
+  db:
+    image: postgres:buster
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: root
+    ports:
+      - 5432:5432
+  typeorm:
+    image: node:lts-buster
+    user: node
+    working_dir: /usr/src/app
+    volumes:
+      - ./:/usr/src/app
+    command: npm start
+    depends_on:
+      - db
