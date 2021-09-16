@@ -4,8 +4,8 @@ import { Employee } from "./entity/Employee";
 import { Task } from "./entity/Task";
 
 createConnection().then(async connection => {
-  // await create(connection);
-  // await assign(connection);
+  await create(connection);
+  await assign(connection);
   await unassign(connection);
 }).catch(error => console.log(error));
 
